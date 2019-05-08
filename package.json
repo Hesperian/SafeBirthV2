@@ -1,0 +1,58 @@
+{
+  "name": "sa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "This is a Framework7 based application. > [Framework7](http://www.idangero.us/framework7) is a Mobile UI framework that can be used to build hybrid apps with PhoneGap. This template allows you to get started using Framework7   quickly.",
+  "bin": {
+    "sa": "make_pdf.js"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "babel-node spec/run.js",
+    "format": "prettier --single-quote --write \"www/js/**/*.js\"",
+    "validate": "find www -name \\*.html -exec html-validate {} \\; | tee validate.txt",
+    "checkspaces": "find www/locales/fr -name '*.html' -exec grep -e ' [?:;]' {} \\;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-hesperianit:hesperianit/SA.git"
+  },
+  "author": "",
+  "devDependencies": {
+    "acorn": "^6.0.4",
+    "ajv": "^6.5.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "cheerio": "^1.0.0-rc.2",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "framework7": "^3.6.2",
+    "framework7-icons": "^0.9.1",
+    "html-pdf": "^2.2.0",
+    "html-validate": "^0.16.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jasmine": "^3.1.0",
+    "jasmine-expect": "^3.8.3",
+    "material-icons": "^0.2.3",
+    "messageformat": "^2.0.5",
+    "mini-css-extract-plugin": "^0.4.1",
+    "moment": "^2.22.2",
+    "node-sass": "^4.9.2",
+    "pgb-api": "git://github.com/mlitwin/pgb-api.git#awaitAndDownloadApps",
+    "prettier": "1.13.7",
+    "sass-loader": "^7.0.3",
+    "sortablejs": "^1.7.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "xml2js": "^0.4.19"
+  },
+  "license": "SEE LICENSE IN LICENCE.md",
+  "dependencies": {
+    "npm": "^6.6.0"
+  }
+}

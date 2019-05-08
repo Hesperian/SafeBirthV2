@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+      Phonegap build configuration file.
+      "id" is the iOS app id.
+      "versionCode" is Android only
+    -->
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="org.hesperian.Safe-Abortion" version="VERSION">
+
+  <!-- Essential Properties -->
+  <name>Safe Birth</name>
+
+  <description>
+    Safe Birth
+  </description>
+
+  <!-- Platforms to Build -->
+  <platform name="ios" />
+  <platform name="android" />
+
+  <access origin="*"/>
+  <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
+
+
+  <!-- Multiplatform Properties -->
+  <!-- Layout tested in portrait mode - but may work in landscape as well -->
+  <preference name="Orientation" value="portrait" />
+
+  <preference name="phonegap-version" value="cli-8.0.0" />
+  <preference name="target-device" value="universal" />
+  <!-- <preference name="fullscreen" value="true" /> -->
+
+  <!-- on very slow systems, such as an Android emulator, default
+      load-url-timeout of 20000 won't allow the load of index.html -->
+  <preference name="load-url-timeout" value="40000" />
+
+
+  <plugin spec="https://github.com/Hesperian/google-analytics-plugin.git" source="git" />
+  <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.2" />
+
+  <!-- iOS Properties -->
+
+  <preference name="EnableViewportScale" value="true" />
+
+  <!-- Disable iOS webviewbounce -->
+
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="UIWebViewBounce" value="false" />
+  <preference name="webviewbounce" value="false" />
+
+  <!-- iOS icons prerendered: system won't add it's own glossy effect -->
+  <preference name="prerendered-icon" value="true" />
+
+  <!-- other preferences we're not using -->
+  <!-- <preference name="stay-in-webview" value="true" /> -->
+  <!-- <preference name="ios-statusbarstyle" value="black-opaque" /> -->
+  <!-- <preference name="exit-on-suspend" value="true" /> -->
+  <!-- <preference name="show-splash-screen-spinner" value="false" /> -->
+  <!-- <preference name="auto-hide-splash-screen" value="false" /> -->
+
+  <!-- Don't auto-detect phone#'s etc. in our html -->
+  <preference name="detect-data-types" value="false" />
+
+  <!-- If you do not want any permissions to be added to your app, add the
+    following tag to your config.xml; you will still have the INTERNET
+    permission on your app, which PhoneGap requires. -->
+  <preference name="permissions" value="none" />
+
+
+  <!-- iOS App icons -->
+  <icon src="icons/ios/icon-40.png" platform="ios" width="40" height="40" />
+  <icon src="icons/ios/icon.png" platform="ios" width="57" height="57" />
+  <icon src="icons/ios/icon-72.png" platform="ios" width="72" height="72" />
+  <icon src="icons/ios/icon_at_2x.png" platform="ios" width="114" height="114" />
+  <icon src="icons/ios/icon-76.png" platform="ios" width="76" height="76" />
+  <icon src="icons/ios/icon-120.png" platform="ios" width="120" height="120" />
+  <icon src="icons/ios/icon-152.png" platform="ios" width="152" height="152" />
+  <icon src="icons/ios/icon-1024.png" platform="ios" width="1024" height="1024" />
+
+  <!-- iOS splash screen a.k.a. launch image -->
+
+  <!-- iPhone and iPod touch -->
+  <splash src="splash/ios/Default.png" platform="ios" width="320" height="480" />
+  <splash src="splash/ios/Default@2x.png" platform="ios" width="640" height="960" />
+  <!-- iPhone 5 / iPod Touch (5th Generation) -->
+  <splash src="splash/ios/Default-568h@2x.png" platform="ios" width="640" height="1136" />
+  <!-- iPhone 6 -->
+  <splash src="splash/ios/Default-667h@2x.png" platform="ios" width="750" height="1334" />
+  <splash src="splash/ios/Default-Portrait-736h@3x.png" platform="ios" width="1242" height="2208" />
+  <splash src="splash/ios/Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />
+  <!-- iPad -->
+  <splash src="splash/ios/Default-Portrait.png" platform="ios" width="768" height="1024" />
+  <splash src="splash/ios/Default-Landscape.png" platform="ios" width="1024" height="768" />
+  <!-- Retina iPad -->
+  <splash src="splash/ios/Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
+  <splash src="splash/ios/Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
+
+ 
+
+  <!-- Android Properties -->
+
+  <!-- Android App icons -->
+  <icon src="icons/android/ldpi.png" platform="android" density="ldpi" />
+  <icon src="icons/android/mdpi.png" platform="android" density="mdpi" />
+  <icon src="icons/android/hdpi.png" platform="android" density="hdpi" />
+  <icon src="icons/android/xhdpi.png" platform="android" density="xhdpi" />
+
+  <!-- Android Splash Screen -->
+  <splash src="splash/android/ldpi.png" platform="android" density="ldpi" />
+  <splash src="splash/android/mdpi.png" platform="android" density="mdpi" />
+  <splash src="splash/android/hdpi.png" platform="android" density="hdpi" />
+  <splash src="splash/android/xhdpi.png" platform="android" density="xhdpi" />
+
+  <!-- Platform application localizations -->
+
+  <!-- App name localization for only seems to work via plugin -->
+  <plugin name="org.hesperian.plugins.safebirth" source="pgb" />
+
+  <!-- iOS -->
+  <config-file platform="ios" target="*-Info.plist" parent="CFBundleLocalizations">
+    <array>
+      <string>en</string>
+      <string>es</string>
+    </array>
+  </config-file>
+
+</widget>
