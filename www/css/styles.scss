@@ -1,0 +1,423 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+
+/*
+  Base font size is 14px;
+
+  14px -> 100%
+  17px -> 121%
+  25px -> 171%
+
+*/
+
+@import '../../node_modules/framework7/css/framework7.css';
+@import 'theme.scss';
+@import 'navbar.scss';
+@import 'buttons.scss';
+
+
+html.md body, html.ios body {
+  font-family: Helvetica, Helvetica Neue, Arial, sans-serif;
+}
+
+$breakpoint-small-large: 390px;
+// width < breakpoint
+@media all and  (min-width: $breakpoint-small-large) {
+  .media-small-width-only {
+    display: none;
+  }
+}
+
+// width >= breakpoint
+@media not all and (min-width: $breakpoint-small-large) {
+  .media-large-width-only {
+    display: none;
+  }
+}
+
+.debug {
+  visibility: hidden;
+  border: 1px solid gray;
+  border-radius: 2px;
+  margin-left: 3px;
+  padding-right: 3px;
+}
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-size: $font-size-normal;
+  /* Target for global font increase */
+}
+
+#app {
+  .content-block {
+    p {
+      padding-left: 3px;
+      padding-right: 3px;
+      font-size: 105%;
+    }
+
+    h2 {
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+  }
+}
+
+/* Utility classes */
+
+.content-title {
+  font-weight: bold;
+}
+
+/* over-ride framework7 font-size to % */
+
+.list-block,
+.content-block {
+  font-size: $font-size-normal;
+}
+
+.button {
+  font-size: $font-size-normal;
+}
+
+#app .list {
+  font-size: inherit; // skip f7 size change
+}
+
+// workaround for https://github.com/framework7io/framework7/issues/2397
+html.device-ios .item-link.active-state {
+  pointer-events: none;
+}
+
+/* for testing
+a:focus {
+  outline: solid black 1px;
+}
+*/
+
+
+/* Take control over framework7 list styles */
+
+.list-block .item-text,
+#app .item-text-long {
+  white-space: normal;
+  height: inherit;
+  max-height: inherit;
+  -webkit-line-clamp: inherit;
+}
+
+#app .links-list a {
+  height: inherit;
+}
+
+#app .list .item-title {
+  white-space: normal;
+}
+
+.statusbar-overlay {
+  background: #000000;
+}
+
+.panel {
+  background: $panel-background;
+}
+
+.panel .panel-icon {
+  height: 30px;
+}
+
+.panel-title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.panel .list-block {
+  margin-top: 10px;
+}
+
+.panel a.close-panel {
+  float: right;
+}
+
+/* Darker text for content-block */
+
+.content-block {
+  color: $content-block-text-color;
+}
+
+.space-around {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+/* Current page sub-heading */
+
+.page-header {
+  border-color: $heading-border-color;
+  border-width: 1px 0px 1px 0px;
+  border-style: solid;
+  margin: 20px -11px 22px -11px;
+  color: $heading-text-color;
+  background-color: $heading-background-color;
+  padding: 0px 0px 0px 12px;
+  min-height: 60px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+}
+
+.header-title-value {
+  display: none;
+}
+
+.page-header .header-title {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-grow: 12;
+  font-weight: bold;
+  font-size: 150%;
+  padding: 6px 6px 6px 6px;
+  line-height: 28px;
+}
+
+.page-header+.list-block {
+  margin-top: 15px;
+}
+
+
+/* Content pages */
+
+.page-content p img {
+  max-width: 100%;
+}
+
+.homepage-header {
+  margin-top: 15px;
+
+
+  .homepage-title {
+    font-size: 175%;
+    font-weight: bold;
+  }
+
+  .homepage-title + .homepage-header-row {
+    .homepage-text {
+      line-height: 120%;
+      font-size: 150%;
+      align-items: flex-start;
+    }
+  }
+
+  .homepage-header-row {
+    display: flex;
+    justify-content: center;
+
+    .homepage-image {
+      height: 145px;
+      padding-right: 10px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .homepage-text {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      font-size: 200%;
+      font-weight: bold;
+      line-height: 110%;
+      max-width: 50%;
+      padding-bottom: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+#app .mc-toolbar {
+  background-color: $navbar-background;
+}
+
+#app .page {
+  background-color: $page-background;
+}
+
+.page-content {
+  padding-right: 11px;
+  padding-left: 11px;
+}
+
+/* Custom list styles */
+
+// 
+#app {
+  ul.bullet-list {
+    list-style-type: disc;
+    padding-left: 17px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+
+    &>li {
+      margin-bottom: 6px;
+    }
+  }
+
+  .list {
+
+    .item-inner:after,
+    ul:after {
+      background-color: $list-divider-color;
+    }
+  }
+}
+
+.list-block .item-title,
+.list-block .item-text {
+  white-space: normal;
+  height: inherit;
+  -webkit-line-clamp: inherit;
+}
+
+/* Buttons */
+
+.button {
+  border: 2px solid $link-border-color;
+  font-weight: bold;
+  color: black;
+  margin: 5px;
+  padding: 5px;
+  white-space: normal;
+  height: initial;
+  line-height: inherit;
+}
+
+/* default link color */
+
+.md a,
+.ios a {
+  color: $inline-link-text-color;
+}
+
+/* Utility classes */
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
+}
+
+#app {
+  .toggle-icon:after {
+    background-color: $toggle-no-primary;
+  }
+
+  .toggle input[type="checkbox"]:checked+.toggle-icon:after {
+    background-color: $toggle-yes-primary;
+  }
+
+  .toggle-icon {
+    background-color: $toggle-no-secondary;
+  }
+
+  .toggle input[type="checkbox"]:checked+.toggle-icon {
+    background-color: $toggle-yes-secondary;
+  }
+
+}
+
+#app label.item-checkbox input[type="checkbox"]:checked~.icon-checkbox,
+#app label.item-checkbox input[type="checkbox"]:checked~* .icon-checkbox,
+#app checkbox input[type="checkbox"]:checked~i {
+  background-color: $toggle-yes-primary;
+  border-color: $toggle-yes-primary;
+}
+
+#app label.item-radio input[type="radio"]:checked ~ .icon-radio:after,
+#app label.item-radio input[type="radio"]:checked ~ * .icon-radio:after,
+#app .radio input[type="radio"]:checked ~ .icon-radio:after {
+  background-color: $toggle-yes-primary;
+}
+
+#app label.item-radio input[type="radio"]:checked ~ .icon-radio,
+#app label.item-radio input[type="radio"]:checked ~ * .icon-radio,
+#app .radio input[type="radio"]:checked ~ .icon-radio {
+  border-color: $toggle-yes-primary;
+}
+
+.introduction {
+  display: none;
+
+  .icon.f7-icons {
+    font-size: 100%;
+  }
+
+  .favorite-icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.favorites-empty .introduction {
+  display: inherit;
+}
+
+$howto-padding: 8px;
+
+#app {
+  .howto {
+    border: 1px solid black;
+    margin-top: 20px;
+
+    .howto-title {
+      font-weight: bold;
+      font-size: 125%;
+      padding: $howto-padding;
+    }
+
+    .howto-section {
+      border-top: 1px solid black;
+
+      &>* {
+        padding: $howto-padding;
+      }
+
+      .howto-section-title {
+        background-color: lightgray;
+      }
+
+      .howto-section-content {
+        padding-top: 0px;
+      }
+    }
+  }
+}
+
+html.device-android {
+  .back-button {
+    display: none;
+  }
+}

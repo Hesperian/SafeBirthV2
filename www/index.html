@@ -13,7 +13,6 @@
           * Enable inline JS: add 'unsafe-inline' to default-src
   -->
   <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content: www.google-analytics.com *.hesperian.org">
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimum-scale=1, user-scalable=yes, minimal-ui, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,8 +20,10 @@
   <meta name="theme-color" content="#2196f3">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-  <title>Safe Abortion</title>
+  <title>Safe Birth</title>
+
 </head>
+
 
 <body>
   <div id="app">
@@ -71,16 +72,77 @@
      </div>
   </script>
 
-  <script class="template-partial" id="template-header" type="text/template7" data-template="searchbar">
+  <script class="template-partial" type="text/template7" data-template="header">
+    <div class="navbar">
+      <div class="navbar-inner navbar-top">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="icon material-icons">menu</i>
+          </a>
+        </div>
+        <div class="title"><img src="img/HHG-logo-small-circle.png" class="center" /></div>
+        <div class="right">
+          <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="icon f7-icons">gear_fill</i>
+          </a>
+        </div>
+
+        <div class="subnavbar secondary-navbar">
+          <a href="#" class="navicon back link navbar-f7-icons back-button">
+            <i class="f7-icons color-custom" aria-hidden="true">chevron_left</i>
+          </a>
+          <div class="subnavbar-inner">
+            <form class="searchbar">
+              <div class="searchbar-inner">
+                <div class="searchbar-input-wrap">
+                  <input type="search">
+                  <i class="searchbar-icon"></i>
+                  <span class="input-clear-button"></span>
+                </div>
+                <span class="searchbar-disable-button searchbar-disable">Cancel</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script class="template-partial" type="text/template7" data-template="searchbar">
     <div class="searchbar-found global-search-results">
       <div class="list no-hairlines links-list list-block global-search virtual-list">
       </div>
     </div>
   </script>
 
-  <script class="template-partial" id="template-footer" type="text/template7" data-template="footer">
-
-  </script>
+  <div id="debug-page" class="popup">
+    <div class="view">
+      <div class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="title">Debug</div>
+            <div class="right">
+              <a class="link popup-close">Close</a>
+            </div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="block block-strong row">
+            <button type="button" class="button convert-form-to-data">Current Answers</button>
+          </div>
+          <div class="block block-strong row">
+            <div class="currentQuestion"></div>
+          </div>
+          <div class="block block-strong row">
+            <div class="methodChooserState"></div>
+          </div>
+          <div class="block block-strong row">
+            <div class="currentScore"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
