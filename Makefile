@@ -61,7 +61,6 @@ clean:
 	rm -f $(APPNAME)-*
 	rm -rf pdftmp ${BUILDDIR}
 
-t
 report:
 	mkdir -p reports
 	$(BABELNODE) bin/makeReport.js > reports/report.html
